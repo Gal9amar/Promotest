@@ -7,7 +7,7 @@ def generate_code(length=16):
     characters = string.ascii_uppercase + string.digits
     return ''.join(random.choice(characters) for _ in range(length))
 
-def generate_codes(count=10000, base_url="https://gal/"):
+def generate_codes(count=10000, base_url="https://chatgpt.com/?promoCode="):
     """Generate multiple codes and format them as URLs"""
     codes = []
     for i in range(count):
