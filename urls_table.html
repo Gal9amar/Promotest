@@ -1,0 +1,2726 @@
+
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>רשימת כתובות - 99 לינקים</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+            direction: rtl;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        
+        .stats {
+            background-color: #2d2d2d;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #2d2d2d;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        
+        th {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+        
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #444;
+            text-align: center;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #3a3a3a;
+        }
+        
+        tr:hover {
+            background-color: #4a4a4a;
+        }
+        
+        .url-link {
+            color: #64B5F6;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 4px;
+            background-color: #1e3a5f;
+            display: inline-block;
+            transition: all 0.3s ease;
+            word-break: break-all;
+        }
+        
+        .url-link:hover {
+            background-color: #2d5a8f;
+            color: #90CAF9;
+            transform: translateY(-2px);
+        }
+        
+        .row-number {
+            color: #FFC107;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        .actions {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin: 0 10px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #45a049;
+        }
+        
+        .btn-secondary {
+            background-color: #6c757d;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+        
+        .btn-valid {
+            background-color: #4CAF50;
+            margin: 2px;
+        }
+        
+        .btn-invalid {
+            background-color: #f44336;
+            margin: 2px;
+        }
+        
+        .btn-valid:hover {
+            background-color: #45a049;
+        }
+        
+        .btn-invalid:hover {
+            background-color: #da190b;
+        }
+        
+        .status-valid {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        
+        .status-invalid {
+            color: #f44336;
+            font-weight: bold;
+        }
+        
+        .status-pending {
+            color: #FFC107;
+            font-weight: bold;
+        }
+        
+        .completed-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #2d2d2d;
+            border-radius: 8px;
+        }
+        
+        .completed-section h3 {
+            color: #4CAF50;
+            margin-bottom: 15px;
+        }
+        
+        .completed-urls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .completed-url {
+            background-color: #3a3a3a;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            word-break: break-all;
+        }
+        
+        .completed-url.valid {
+            border-left: 4px solid #4CAF50;
+        }
+        
+        .completed-url.invalid {
+            border-left: 4px solid #f44336;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 רשימת כתובות קידוד</h1>
+        
+        <div class="stats">
+            📊 סה"כ 99 כתובות | 🕒 נוצר ב-1757447511.269807
+            <br>
+            ✅ תקינים: <span id="valid-count">0</span> | 
+            ❌ לא תקינים: <span id="invalid-count">0</span> | 
+            ⏳ ממתינים: <span id="pending-count">99</span>
+        </div>
+        
+        <div class="actions">
+            <button class="btn" onclick="openNextThree()">
+                🚀 פתח 3 לינקים הבאים
+            </button>
+            <button class="btn btn-secondary" onclick="copyAllUrls()">
+                📋 העתק את כל הכתובות
+            </button>
+            <button class="btn btn-secondary" onclick="exportResults()">
+                💾 ייצא תוצאות JSON
+            </button>
+            <button class="btn btn-secondary" onclick="exportValidUrls()">
+                ✅ ייצא לינקים תקינים
+            </button>
+            <button class="btn btn-secondary" onclick="exportInvalidUrls()">
+                ❌ ייצא לינקים לא תקינים
+            </button>
+        </div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>מס'</th>
+                    <th>כתובת הקישור</th>
+                    <th>סטטוס</th>
+                    <th>פעולות</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr id="row-1">
+                    <td class="row-number">1</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=LSBN3QBCMFMFKDFE" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=LSBN3QBCMFMFKDFE
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-1">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=LSBN3QBCMFMFKDFE', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=LSBN3QBCMFMFKDFE', 1)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=LSBN3QBCMFMFKDFE', 1)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-2">
+                    <td class="row-number">2</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=062KOPUZQYBCO0AS" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=062KOPUZQYBCO0AS
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-2">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=062KOPUZQYBCO0AS', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=062KOPUZQYBCO0AS', 2)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=062KOPUZQYBCO0AS', 2)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-3">
+                    <td class="row-number">3</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=3W3P63SZBA6AL97W" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=3W3P63SZBA6AL97W
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-3">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=3W3P63SZBA6AL97W', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=3W3P63SZBA6AL97W', 3)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=3W3P63SZBA6AL97W', 3)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-4">
+                    <td class="row-number">4</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=A6E70XU3RMXTNWRX" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=A6E70XU3RMXTNWRX
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-4">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=A6E70XU3RMXTNWRX', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=A6E70XU3RMXTNWRX', 4)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=A6E70XU3RMXTNWRX', 4)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-5">
+                    <td class="row-number">5</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=O4D9IKQ8NWABAFFQ" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=O4D9IKQ8NWABAFFQ
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-5">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=O4D9IKQ8NWABAFFQ', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=O4D9IKQ8NWABAFFQ', 5)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=O4D9IKQ8NWABAFFQ', 5)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-6">
+                    <td class="row-number">6</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=JYPVHTWEINMDIKYP" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=JYPVHTWEINMDIKYP
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-6">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=JYPVHTWEINMDIKYP', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=JYPVHTWEINMDIKYP', 6)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=JYPVHTWEINMDIKYP', 6)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-7">
+                    <td class="row-number">7</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=25Q21998NA1AFZ3C" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=25Q21998NA1AFZ3C
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-7">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=25Q21998NA1AFZ3C', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=25Q21998NA1AFZ3C', 7)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=25Q21998NA1AFZ3C', 7)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-8">
+                    <td class="row-number">8</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=ZOSJ1A9JAC0R7GGC" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=ZOSJ1A9JAC0R7GGC
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-8">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=ZOSJ1A9JAC0R7GGC', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=ZOSJ1A9JAC0R7GGC', 8)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=ZOSJ1A9JAC0R7GGC', 8)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-9">
+                    <td class="row-number">9</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=ZHKL69QL6RP449NE" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=ZHKL69QL6RP449NE
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-9">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=ZHKL69QL6RP449NE', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=ZHKL69QL6RP449NE', 9)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=ZHKL69QL6RP449NE', 9)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-10">
+                    <td class="row-number">10</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=V8NLPH03GLJFOIIC" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=V8NLPH03GLJFOIIC
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-10">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=V8NLPH03GLJFOIIC', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=V8NLPH03GLJFOIIC', 10)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=V8NLPH03GLJFOIIC', 10)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-11">
+                    <td class="row-number">11</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=NQOU7VT2PD6OY89D" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=NQOU7VT2PD6OY89D
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-11">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=NQOU7VT2PD6OY89D', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=NQOU7VT2PD6OY89D', 11)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=NQOU7VT2PD6OY89D', 11)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-12">
+                    <td class="row-number">12</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=T8Q3KP5ND09QW126" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=T8Q3KP5ND09QW126
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-12">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=T8Q3KP5ND09QW126', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=T8Q3KP5ND09QW126', 12)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=T8Q3KP5ND09QW126', 12)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-13">
+                    <td class="row-number">13</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=P89BMX5UZ0Y3I9N4" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=P89BMX5UZ0Y3I9N4
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-13">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=P89BMX5UZ0Y3I9N4', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=P89BMX5UZ0Y3I9N4', 13)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=P89BMX5UZ0Y3I9N4', 13)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-14">
+                    <td class="row-number">14</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=L3USMGKM52JMITCQ" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=L3USMGKM52JMITCQ
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-14">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=L3USMGKM52JMITCQ', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=L3USMGKM52JMITCQ', 14)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=L3USMGKM52JMITCQ', 14)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-15">
+                    <td class="row-number">15</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=JOLNVI53XYDUVZ0T" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=JOLNVI53XYDUVZ0T
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-15">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=JOLNVI53XYDUVZ0T', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=JOLNVI53XYDUVZ0T', 15)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=JOLNVI53XYDUVZ0T', 15)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-16">
+                    <td class="row-number">16</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=QSHHRWWAUVPQ61D0" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=QSHHRWWAUVPQ61D0
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-16">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=QSHHRWWAUVPQ61D0', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=QSHHRWWAUVPQ61D0', 16)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=QSHHRWWAUVPQ61D0', 16)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-17">
+                    <td class="row-number">17</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=U4G2XXH3XJVMQWFF" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=U4G2XXH3XJVMQWFF
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-17">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=U4G2XXH3XJVMQWFF', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=U4G2XXH3XJVMQWFF', 17)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=U4G2XXH3XJVMQWFF', 17)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-18">
+                    <td class="row-number">18</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=W0BNCDXSSTXVCLJO" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=W0BNCDXSSTXVCLJO
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-18">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=W0BNCDXSSTXVCLJO', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=W0BNCDXSSTXVCLJO', 18)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=W0BNCDXSSTXVCLJO', 18)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-19">
+                    <td class="row-number">19</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=WJ7UYEISJGO48AH7" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=WJ7UYEISJGO48AH7
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-19">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=WJ7UYEISJGO48AH7', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=WJ7UYEISJGO48AH7', 19)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=WJ7UYEISJGO48AH7', 19)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-20">
+                    <td class="row-number">20</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=X0O1KVONCVYH9EM4" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=X0O1KVONCVYH9EM4
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-20">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=X0O1KVONCVYH9EM4', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=X0O1KVONCVYH9EM4', 20)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=X0O1KVONCVYH9EM4', 20)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-21">
+                    <td class="row-number">21</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=H1R2KLPN3UZL6CSY" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=H1R2KLPN3UZL6CSY
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-21">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=H1R2KLPN3UZL6CSY', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=H1R2KLPN3UZL6CSY', 21)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=H1R2KLPN3UZL6CSY', 21)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-22">
+                    <td class="row-number">22</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=PF39GIN7BFQS6RMO" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=PF39GIN7BFQS6RMO
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-22">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=PF39GIN7BFQS6RMO', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=PF39GIN7BFQS6RMO', 22)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=PF39GIN7BFQS6RMO', 22)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-23">
+                    <td class="row-number">23</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=4MKCKPI8QBHHXCYT" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=4MKCKPI8QBHHXCYT
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-23">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=4MKCKPI8QBHHXCYT', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=4MKCKPI8QBHHXCYT', 23)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=4MKCKPI8QBHHXCYT', 23)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-24">
+                    <td class="row-number">24</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=6GC031Z3Q63OR8PF" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=6GC031Z3Q63OR8PF
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-24">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=6GC031Z3Q63OR8PF', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=6GC031Z3Q63OR8PF', 24)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=6GC031Z3Q63OR8PF', 24)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-25">
+                    <td class="row-number">25</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=DEVDJR69H8QPG7T2" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=DEVDJR69H8QPG7T2
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-25">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=DEVDJR69H8QPG7T2', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=DEVDJR69H8QPG7T2', 25)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=DEVDJR69H8QPG7T2', 25)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-26">
+                    <td class="row-number">26</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=RSSTNIPPD6BFJKH6" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=RSSTNIPPD6BFJKH6
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-26">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=RSSTNIPPD6BFJKH6', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=RSSTNIPPD6BFJKH6', 26)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=RSSTNIPPD6BFJKH6', 26)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-27">
+                    <td class="row-number">27</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=HBXLQO9LOVIUSC3E" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=HBXLQO9LOVIUSC3E
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-27">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=HBXLQO9LOVIUSC3E', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=HBXLQO9LOVIUSC3E', 27)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=HBXLQO9LOVIUSC3E', 27)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-28">
+                    <td class="row-number">28</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=C22VKKXW6SF0BU1T" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=C22VKKXW6SF0BU1T
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-28">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=C22VKKXW6SF0BU1T', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=C22VKKXW6SF0BU1T', 28)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=C22VKKXW6SF0BU1T', 28)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-29">
+                    <td class="row-number">29</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=JE8LTYOI0RY9NZM5" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=JE8LTYOI0RY9NZM5
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-29">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=JE8LTYOI0RY9NZM5', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=JE8LTYOI0RY9NZM5', 29)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=JE8LTYOI0RY9NZM5', 29)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-30">
+                    <td class="row-number">30</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=WXZH9MEFWGRUYEL6" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=WXZH9MEFWGRUYEL6
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-30">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=WXZH9MEFWGRUYEL6', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=WXZH9MEFWGRUYEL6', 30)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=WXZH9MEFWGRUYEL6', 30)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-31">
+                    <td class="row-number">31</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=1IFK1OSCDLF72DRB" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=1IFK1OSCDLF72DRB
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-31">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=1IFK1OSCDLF72DRB', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=1IFK1OSCDLF72DRB', 31)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=1IFK1OSCDLF72DRB', 31)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-32">
+                    <td class="row-number">32</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=LEDQLBS4Y1W4VPJP" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=LEDQLBS4Y1W4VPJP
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-32">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=LEDQLBS4Y1W4VPJP', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=LEDQLBS4Y1W4VPJP', 32)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=LEDQLBS4Y1W4VPJP', 32)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-33">
+                    <td class="row-number">33</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=0ERNCO0UN3GR1K4L" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=0ERNCO0UN3GR1K4L
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-33">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=0ERNCO0UN3GR1K4L', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=0ERNCO0UN3GR1K4L', 33)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=0ERNCO0UN3GR1K4L', 33)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-34">
+                    <td class="row-number">34</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=FGF9ZS477Y4B9BSG" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=FGF9ZS477Y4B9BSG
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-34">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=FGF9ZS477Y4B9BSG', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=FGF9ZS477Y4B9BSG', 34)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=FGF9ZS477Y4B9BSG', 34)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-35">
+                    <td class="row-number">35</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=80HCHELAQS2MAXUI" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=80HCHELAQS2MAXUI
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-35">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=80HCHELAQS2MAXUI', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=80HCHELAQS2MAXUI', 35)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=80HCHELAQS2MAXUI', 35)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-36">
+                    <td class="row-number">36</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=F5T71TWHHOSRCPV5" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=F5T71TWHHOSRCPV5
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-36">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=F5T71TWHHOSRCPV5', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=F5T71TWHHOSRCPV5', 36)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=F5T71TWHHOSRCPV5', 36)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-37">
+                    <td class="row-number">37</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=TRRPD14T5CBX8XN4" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=TRRPD14T5CBX8XN4
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-37">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=TRRPD14T5CBX8XN4', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=TRRPD14T5CBX8XN4', 37)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=TRRPD14T5CBX8XN4', 37)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-38">
+                    <td class="row-number">38</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=MVV61KCJLAMG41JB" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=MVV61KCJLAMG41JB
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-38">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=MVV61KCJLAMG41JB', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=MVV61KCJLAMG41JB', 38)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=MVV61KCJLAMG41JB', 38)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-39">
+                    <td class="row-number">39</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=0RGQF3UU039XD1HP" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=0RGQF3UU039XD1HP
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-39">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=0RGQF3UU039XD1HP', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=0RGQF3UU039XD1HP', 39)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=0RGQF3UU039XD1HP', 39)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-40">
+                    <td class="row-number">40</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=2TKWGOBLCOVEIQ07" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=2TKWGOBLCOVEIQ07
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-40">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=2TKWGOBLCOVEIQ07', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=2TKWGOBLCOVEIQ07', 40)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=2TKWGOBLCOVEIQ07', 40)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-41">
+                    <td class="row-number">41</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=NI7U8FIFLICLO9W0" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=NI7U8FIFLICLO9W0
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-41">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=NI7U8FIFLICLO9W0', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=NI7U8FIFLICLO9W0', 41)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=NI7U8FIFLICLO9W0', 41)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-42">
+                    <td class="row-number">42</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=QBWGULW9MUDU2Z6I" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=QBWGULW9MUDU2Z6I
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-42">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=QBWGULW9MUDU2Z6I', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=QBWGULW9MUDU2Z6I', 42)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=QBWGULW9MUDU2Z6I', 42)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-43">
+                    <td class="row-number">43</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=IDT05MMEVEJNRJ5N" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=IDT05MMEVEJNRJ5N
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-43">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=IDT05MMEVEJNRJ5N', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=IDT05MMEVEJNRJ5N', 43)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=IDT05MMEVEJNRJ5N', 43)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-44">
+                    <td class="row-number">44</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=2V6QMWNA1RAMTQH2" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=2V6QMWNA1RAMTQH2
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-44">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=2V6QMWNA1RAMTQH2', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=2V6QMWNA1RAMTQH2', 44)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=2V6QMWNA1RAMTQH2', 44)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-45">
+                    <td class="row-number">45</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=42OOJL120HBHNCVJ" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=42OOJL120HBHNCVJ
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-45">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=42OOJL120HBHNCVJ', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=42OOJL120HBHNCVJ', 45)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=42OOJL120HBHNCVJ', 45)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-46">
+                    <td class="row-number">46</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=2TF51Q0BW5JWZW88" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=2TF51Q0BW5JWZW88
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-46">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=2TF51Q0BW5JWZW88', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=2TF51Q0BW5JWZW88', 46)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=2TF51Q0BW5JWZW88', 46)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-47">
+                    <td class="row-number">47</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=GZB9J2GA74S5HG8R" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=GZB9J2GA74S5HG8R
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-47">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=GZB9J2GA74S5HG8R', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=GZB9J2GA74S5HG8R', 47)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=GZB9J2GA74S5HG8R', 47)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-48">
+                    <td class="row-number">48</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=CF9293IV90RG2V38" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=CF9293IV90RG2V38
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-48">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=CF9293IV90RG2V38', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=CF9293IV90RG2V38', 48)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=CF9293IV90RG2V38', 48)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-49">
+                    <td class="row-number">49</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=0CRGADN7MYI1OP15" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=0CRGADN7MYI1OP15
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-49">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=0CRGADN7MYI1OP15', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=0CRGADN7MYI1OP15', 49)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=0CRGADN7MYI1OP15', 49)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-50">
+                    <td class="row-number">50</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=57UHG7WHVN43T2UE" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=57UHG7WHVN43T2UE
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-50">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=57UHG7WHVN43T2UE', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=57UHG7WHVN43T2UE', 50)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=57UHG7WHVN43T2UE', 50)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-51">
+                    <td class="row-number">51</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=G8VEA0ER1UTPWJ4E" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=G8VEA0ER1UTPWJ4E
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-51">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=G8VEA0ER1UTPWJ4E', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=G8VEA0ER1UTPWJ4E', 51)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=G8VEA0ER1UTPWJ4E', 51)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-52">
+                    <td class="row-number">52</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=F0D5Y2W2NFFY8GNI" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=F0D5Y2W2NFFY8GNI
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-52">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=F0D5Y2W2NFFY8GNI', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=F0D5Y2W2NFFY8GNI', 52)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=F0D5Y2W2NFFY8GNI', 52)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-53">
+                    <td class="row-number">53</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=YN4XX0HTOC3D1FA8" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=YN4XX0HTOC3D1FA8
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-53">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=YN4XX0HTOC3D1FA8', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=YN4XX0HTOC3D1FA8', 53)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=YN4XX0HTOC3D1FA8', 53)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-54">
+                    <td class="row-number">54</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=YYFV7YBL5VTQ0HNU" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=YYFV7YBL5VTQ0HNU
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-54">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=YYFV7YBL5VTQ0HNU', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=YYFV7YBL5VTQ0HNU', 54)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=YYFV7YBL5VTQ0HNU', 54)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-55">
+                    <td class="row-number">55</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=96TC930MA39PIO2X" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=96TC930MA39PIO2X
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-55">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=96TC930MA39PIO2X', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=96TC930MA39PIO2X', 55)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=96TC930MA39PIO2X', 55)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-56">
+                    <td class="row-number">56</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=PK9M6P8A9CMPGCRG" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=PK9M6P8A9CMPGCRG
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-56">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=PK9M6P8A9CMPGCRG', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=PK9M6P8A9CMPGCRG', 56)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=PK9M6P8A9CMPGCRG', 56)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-57">
+                    <td class="row-number">57</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=3LVO3ZIN5CEJ83FE" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=3LVO3ZIN5CEJ83FE
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-57">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=3LVO3ZIN5CEJ83FE', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=3LVO3ZIN5CEJ83FE', 57)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=3LVO3ZIN5CEJ83FE', 57)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-58">
+                    <td class="row-number">58</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=8HHY3KD6ID70OS6O" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=8HHY3KD6ID70OS6O
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-58">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=8HHY3KD6ID70OS6O', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=8HHY3KD6ID70OS6O', 58)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=8HHY3KD6ID70OS6O', 58)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-59">
+                    <td class="row-number">59</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=92AEFWGMZN2JZ0DS" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=92AEFWGMZN2JZ0DS
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-59">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=92AEFWGMZN2JZ0DS', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=92AEFWGMZN2JZ0DS', 59)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=92AEFWGMZN2JZ0DS', 59)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-60">
+                    <td class="row-number">60</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=DSXFQ5HUYA2DDJ5C" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=DSXFQ5HUYA2DDJ5C
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-60">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=DSXFQ5HUYA2DDJ5C', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=DSXFQ5HUYA2DDJ5C', 60)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=DSXFQ5HUYA2DDJ5C', 60)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-61">
+                    <td class="row-number">61</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=LHDZN3ID98QC1UYU" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=LHDZN3ID98QC1UYU
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-61">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=LHDZN3ID98QC1UYU', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=LHDZN3ID98QC1UYU', 61)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=LHDZN3ID98QC1UYU', 61)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-62">
+                    <td class="row-number">62</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=ELQSGFFUZEH0SOD7" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=ELQSGFFUZEH0SOD7
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-62">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=ELQSGFFUZEH0SOD7', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=ELQSGFFUZEH0SOD7', 62)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=ELQSGFFUZEH0SOD7', 62)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-63">
+                    <td class="row-number">63</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=JWGHQK4A0XB4WTAI" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=JWGHQK4A0XB4WTAI
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-63">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=JWGHQK4A0XB4WTAI', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=JWGHQK4A0XB4WTAI', 63)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=JWGHQK4A0XB4WTAI', 63)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-64">
+                    <td class="row-number">64</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=VO86LTYPQD24QLT9" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=VO86LTYPQD24QLT9
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-64">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=VO86LTYPQD24QLT9', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=VO86LTYPQD24QLT9', 64)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=VO86LTYPQD24QLT9', 64)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-65">
+                    <td class="row-number">65</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=4Q9CIUGXHDAFRN4A" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=4Q9CIUGXHDAFRN4A
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-65">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=4Q9CIUGXHDAFRN4A', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=4Q9CIUGXHDAFRN4A', 65)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=4Q9CIUGXHDAFRN4A', 65)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-66">
+                    <td class="row-number">66</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=D2M0LV8FAFAPB3UF" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=D2M0LV8FAFAPB3UF
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-66">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=D2M0LV8FAFAPB3UF', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=D2M0LV8FAFAPB3UF', 66)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=D2M0LV8FAFAPB3UF', 66)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-67">
+                    <td class="row-number">67</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=J5W475ZQILXKJVAK" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=J5W475ZQILXKJVAK
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-67">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=J5W475ZQILXKJVAK', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=J5W475ZQILXKJVAK', 67)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=J5W475ZQILXKJVAK', 67)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-68">
+                    <td class="row-number">68</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=CBST6RLMYNSNXBMU" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=CBST6RLMYNSNXBMU
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-68">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=CBST6RLMYNSNXBMU', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=CBST6RLMYNSNXBMU', 68)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=CBST6RLMYNSNXBMU', 68)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-69">
+                    <td class="row-number">69</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=H2VEH7QP1IYEZ18I" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=H2VEH7QP1IYEZ18I
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-69">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=H2VEH7QP1IYEZ18I', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=H2VEH7QP1IYEZ18I', 69)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=H2VEH7QP1IYEZ18I', 69)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-70">
+                    <td class="row-number">70</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=88SIUAPG5K1RAVBQ" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=88SIUAPG5K1RAVBQ
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-70">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=88SIUAPG5K1RAVBQ', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=88SIUAPG5K1RAVBQ', 70)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=88SIUAPG5K1RAVBQ', 70)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-71">
+                    <td class="row-number">71</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=RXI4Z3M88CIA45Y0" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=RXI4Z3M88CIA45Y0
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-71">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=RXI4Z3M88CIA45Y0', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=RXI4Z3M88CIA45Y0', 71)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=RXI4Z3M88CIA45Y0', 71)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-72">
+                    <td class="row-number">72</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=XRI9PS9ASUVNGTSC" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=XRI9PS9ASUVNGTSC
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-72">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=XRI9PS9ASUVNGTSC', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=XRI9PS9ASUVNGTSC', 72)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=XRI9PS9ASUVNGTSC', 72)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-73">
+                    <td class="row-number">73</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=HB2IV6NX6L8CY5NL" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=HB2IV6NX6L8CY5NL
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-73">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=HB2IV6NX6L8CY5NL', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=HB2IV6NX6L8CY5NL', 73)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=HB2IV6NX6L8CY5NL', 73)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-74">
+                    <td class="row-number">74</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=DLZ1T2MWOQU6Y67E" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=DLZ1T2MWOQU6Y67E
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-74">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=DLZ1T2MWOQU6Y67E', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=DLZ1T2MWOQU6Y67E', 74)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=DLZ1T2MWOQU6Y67E', 74)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-75">
+                    <td class="row-number">75</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=EL7T7GTKEOQ8JX4E" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=EL7T7GTKEOQ8JX4E
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-75">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=EL7T7GTKEOQ8JX4E', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=EL7T7GTKEOQ8JX4E', 75)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=EL7T7GTKEOQ8JX4E', 75)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-76">
+                    <td class="row-number">76</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=55INME5FNM9G1HIL" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=55INME5FNM9G1HIL
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-76">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=55INME5FNM9G1HIL', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=55INME5FNM9G1HIL', 76)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=55INME5FNM9G1HIL', 76)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-77">
+                    <td class="row-number">77</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=IFS6DVCRW8CPDC31" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=IFS6DVCRW8CPDC31
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-77">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=IFS6DVCRW8CPDC31', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=IFS6DVCRW8CPDC31', 77)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=IFS6DVCRW8CPDC31', 77)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-78">
+                    <td class="row-number">78</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=4IWE4CNGZU7K1D77" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=4IWE4CNGZU7K1D77
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-78">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=4IWE4CNGZU7K1D77', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=4IWE4CNGZU7K1D77', 78)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=4IWE4CNGZU7K1D77', 78)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-79">
+                    <td class="row-number">79</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=I29E0DXRLPTN8FCP" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=I29E0DXRLPTN8FCP
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-79">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=I29E0DXRLPTN8FCP', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=I29E0DXRLPTN8FCP', 79)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=I29E0DXRLPTN8FCP', 79)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-80">
+                    <td class="row-number">80</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=GQUELFW28O81F9AK" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=GQUELFW28O81F9AK
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-80">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=GQUELFW28O81F9AK', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=GQUELFW28O81F9AK', 80)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=GQUELFW28O81F9AK', 80)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-81">
+                    <td class="row-number">81</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=MFWOP5V58OCS7EYR" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=MFWOP5V58OCS7EYR
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-81">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=MFWOP5V58OCS7EYR', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=MFWOP5V58OCS7EYR', 81)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=MFWOP5V58OCS7EYR', 81)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-82">
+                    <td class="row-number">82</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=7EC4KKWSF3T9VWK3" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=7EC4KKWSF3T9VWK3
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-82">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=7EC4KKWSF3T9VWK3', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=7EC4KKWSF3T9VWK3', 82)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=7EC4KKWSF3T9VWK3', 82)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-83">
+                    <td class="row-number">83</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=QQZL1VCVPSD70AH6" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=QQZL1VCVPSD70AH6
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-83">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=QQZL1VCVPSD70AH6', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=QQZL1VCVPSD70AH6', 83)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=QQZL1VCVPSD70AH6', 83)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-84">
+                    <td class="row-number">84</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=5DQMXMJY8N4B3V04" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=5DQMXMJY8N4B3V04
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-84">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=5DQMXMJY8N4B3V04', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=5DQMXMJY8N4B3V04', 84)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=5DQMXMJY8N4B3V04', 84)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-85">
+                    <td class="row-number">85</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=1R6RXFZDT0M0BGBB" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=1R6RXFZDT0M0BGBB
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-85">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=1R6RXFZDT0M0BGBB', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=1R6RXFZDT0M0BGBB', 85)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=1R6RXFZDT0M0BGBB', 85)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-86">
+                    <td class="row-number">86</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=YRDMAVBTLIJT6GDG" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=YRDMAVBTLIJT6GDG
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-86">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=YRDMAVBTLIJT6GDG', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=YRDMAVBTLIJT6GDG', 86)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=YRDMAVBTLIJT6GDG', 86)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-87">
+                    <td class="row-number">87</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=L971PQ9CICCL4YAY" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=L971PQ9CICCL4YAY
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-87">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=L971PQ9CICCL4YAY', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=L971PQ9CICCL4YAY', 87)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=L971PQ9CICCL4YAY', 87)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-88">
+                    <td class="row-number">88</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=F17LM5OMKCYN7RWT" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=F17LM5OMKCYN7RWT
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-88">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=F17LM5OMKCYN7RWT', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=F17LM5OMKCYN7RWT', 88)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=F17LM5OMKCYN7RWT', 88)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-89">
+                    <td class="row-number">89</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=H7WRQDUNFH12CWJA" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=H7WRQDUNFH12CWJA
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-89">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=H7WRQDUNFH12CWJA', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=H7WRQDUNFH12CWJA', 89)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=H7WRQDUNFH12CWJA', 89)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-90">
+                    <td class="row-number">90</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=R5JF1LL9SLFO8RPE" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=R5JF1LL9SLFO8RPE
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-90">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=R5JF1LL9SLFO8RPE', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=R5JF1LL9SLFO8RPE', 90)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=R5JF1LL9SLFO8RPE', 90)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-91">
+                    <td class="row-number">91</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=XX1RYJQCKTAIYKEV" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=XX1RYJQCKTAIYKEV
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-91">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=XX1RYJQCKTAIYKEV', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=XX1RYJQCKTAIYKEV', 91)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=XX1RYJQCKTAIYKEV', 91)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-92">
+                    <td class="row-number">92</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=YB1YH05C5BVBVDRZ" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=YB1YH05C5BVBVDRZ
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-92">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=YB1YH05C5BVBVDRZ', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=YB1YH05C5BVBVDRZ', 92)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=YB1YH05C5BVBVDRZ', 92)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-93">
+                    <td class="row-number">93</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=32EE3WAAVI0HFPS3" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=32EE3WAAVI0HFPS3
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-93">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=32EE3WAAVI0HFPS3', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=32EE3WAAVI0HFPS3', 93)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=32EE3WAAVI0HFPS3', 93)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-94">
+                    <td class="row-number">94</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=2M85D1ONRYV2KPJR" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=2M85D1ONRYV2KPJR
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-94">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=2M85D1ONRYV2KPJR', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=2M85D1ONRYV2KPJR', 94)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=2M85D1ONRYV2KPJR', 94)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-95">
+                    <td class="row-number">95</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=IEK964D0D27NBTMC" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=IEK964D0D27NBTMC
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-95">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=IEK964D0D27NBTMC', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=IEK964D0D27NBTMC', 95)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=IEK964D0D27NBTMC', 95)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-96">
+                    <td class="row-number">96</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=W5X5E0BPYIIEOYN7" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=W5X5E0BPYIIEOYN7
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-96">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=W5X5E0BPYIIEOYN7', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=W5X5E0BPYIIEOYN7', 96)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=W5X5E0BPYIIEOYN7', 96)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-97">
+                    <td class="row-number">97</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=B03X1SY908IXO4H5" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=B03X1SY908IXO4H5
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-97">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=B03X1SY908IXO4H5', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=B03X1SY908IXO4H5', 97)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=B03X1SY908IXO4H5', 97)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-98">
+                    <td class="row-number">98</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=PDHZ2ZW233SW7VSH" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=PDHZ2ZW233SW7VSH
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-98">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=PDHZ2ZW233SW7VSH', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=PDHZ2ZW233SW7VSH', 98)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=PDHZ2ZW233SW7VSH', 98)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+                <tr id="row-99">
+                    <td class="row-number">99</td>
+                    <td>
+                        <a href="https://chatgpt.com/?promoCode=AAH71FPOPEMJ4CNX" target="_blank" class="url-link">
+                            https://chatgpt.com/?promoCode=AAH71FPOPEMJ4CNX
+                        </a>
+                    </td>
+                    <td>
+                        <span class="status-pending" id="status-99">⏳ ממתין</span>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="window.open('https://chatgpt.com/?promoCode=AAH71FPOPEMJ4CNX', '_blank')">
+                            🔗 פתח טאב חדש
+                        </button>
+                        <button class="btn btn-valid" onclick="markAsValid('https://chatgpt.com/?promoCode=AAH71FPOPEMJ4CNX', 99)">
+                            ✅ תקין
+                        </button>
+                        <button class="btn btn-invalid" onclick="markAsInvalid('https://chatgpt.com/?promoCode=AAH71FPOPEMJ4CNX', 99)">
+                            ❌ לא תקין
+                        </button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        
+        <div class="completed-section" id="completed-section" style="display: none;">
+            <h3>✅ לינקים שהושלמו</h3>
+            <div class="completed-urls" id="completed-urls">
+                <!-- Completed URLs will be added here dynamically -->
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const urls = ['https://chatgpt.com/?promoCode=LSBN3QBCMFMFKDFE', 'https://chatgpt.com/?promoCode=062KOPUZQYBCO0AS', 'https://chatgpt.com/?promoCode=3W3P63SZBA6AL97W', 'https://chatgpt.com/?promoCode=A6E70XU3RMXTNWRX', 'https://chatgpt.com/?promoCode=O4D9IKQ8NWABAFFQ', 'https://chatgpt.com/?promoCode=JYPVHTWEINMDIKYP', 'https://chatgpt.com/?promoCode=25Q21998NA1AFZ3C', 'https://chatgpt.com/?promoCode=ZOSJ1A9JAC0R7GGC', 'https://chatgpt.com/?promoCode=ZHKL69QL6RP449NE', 'https://chatgpt.com/?promoCode=V8NLPH03GLJFOIIC', 'https://chatgpt.com/?promoCode=NQOU7VT2PD6OY89D', 'https://chatgpt.com/?promoCode=T8Q3KP5ND09QW126', 'https://chatgpt.com/?promoCode=P89BMX5UZ0Y3I9N4', 'https://chatgpt.com/?promoCode=L3USMGKM52JMITCQ', 'https://chatgpt.com/?promoCode=JOLNVI53XYDUVZ0T', 'https://chatgpt.com/?promoCode=QSHHRWWAUVPQ61D0', 'https://chatgpt.com/?promoCode=U4G2XXH3XJVMQWFF', 'https://chatgpt.com/?promoCode=W0BNCDXSSTXVCLJO', 'https://chatgpt.com/?promoCode=WJ7UYEISJGO48AH7', 'https://chatgpt.com/?promoCode=X0O1KVONCVYH9EM4', 'https://chatgpt.com/?promoCode=H1R2KLPN3UZL6CSY', 'https://chatgpt.com/?promoCode=PF39GIN7BFQS6RMO', 'https://chatgpt.com/?promoCode=4MKCKPI8QBHHXCYT', 'https://chatgpt.com/?promoCode=6GC031Z3Q63OR8PF', 'https://chatgpt.com/?promoCode=DEVDJR69H8QPG7T2', 'https://chatgpt.com/?promoCode=RSSTNIPPD6BFJKH6', 'https://chatgpt.com/?promoCode=HBXLQO9LOVIUSC3E', 'https://chatgpt.com/?promoCode=C22VKKXW6SF0BU1T', 'https://chatgpt.com/?promoCode=JE8LTYOI0RY9NZM5', 'https://chatgpt.com/?promoCode=WXZH9MEFWGRUYEL6', 'https://chatgpt.com/?promoCode=1IFK1OSCDLF72DRB', 'https://chatgpt.com/?promoCode=LEDQLBS4Y1W4VPJP', 'https://chatgpt.com/?promoCode=0ERNCO0UN3GR1K4L', 'https://chatgpt.com/?promoCode=FGF9ZS477Y4B9BSG', 'https://chatgpt.com/?promoCode=80HCHELAQS2MAXUI', 'https://chatgpt.com/?promoCode=F5T71TWHHOSRCPV5', 'https://chatgpt.com/?promoCode=TRRPD14T5CBX8XN4', 'https://chatgpt.com/?promoCode=MVV61KCJLAMG41JB', 'https://chatgpt.com/?promoCode=0RGQF3UU039XD1HP', 'https://chatgpt.com/?promoCode=2TKWGOBLCOVEIQ07', 'https://chatgpt.com/?promoCode=NI7U8FIFLICLO9W0', 'https://chatgpt.com/?promoCode=QBWGULW9MUDU2Z6I', 'https://chatgpt.com/?promoCode=IDT05MMEVEJNRJ5N', 'https://chatgpt.com/?promoCode=2V6QMWNA1RAMTQH2', 'https://chatgpt.com/?promoCode=42OOJL120HBHNCVJ', 'https://chatgpt.com/?promoCode=2TF51Q0BW5JWZW88', 'https://chatgpt.com/?promoCode=GZB9J2GA74S5HG8R', 'https://chatgpt.com/?promoCode=CF9293IV90RG2V38', 'https://chatgpt.com/?promoCode=0CRGADN7MYI1OP15', 'https://chatgpt.com/?promoCode=57UHG7WHVN43T2UE', 'https://chatgpt.com/?promoCode=G8VEA0ER1UTPWJ4E', 'https://chatgpt.com/?promoCode=F0D5Y2W2NFFY8GNI', 'https://chatgpt.com/?promoCode=YN4XX0HTOC3D1FA8', 'https://chatgpt.com/?promoCode=YYFV7YBL5VTQ0HNU', 'https://chatgpt.com/?promoCode=96TC930MA39PIO2X', 'https://chatgpt.com/?promoCode=PK9M6P8A9CMPGCRG', 'https://chatgpt.com/?promoCode=3LVO3ZIN5CEJ83FE', 'https://chatgpt.com/?promoCode=8HHY3KD6ID70OS6O', 'https://chatgpt.com/?promoCode=92AEFWGMZN2JZ0DS', 'https://chatgpt.com/?promoCode=DSXFQ5HUYA2DDJ5C', 'https://chatgpt.com/?promoCode=LHDZN3ID98QC1UYU', 'https://chatgpt.com/?promoCode=ELQSGFFUZEH0SOD7', 'https://chatgpt.com/?promoCode=JWGHQK4A0XB4WTAI', 'https://chatgpt.com/?promoCode=VO86LTYPQD24QLT9', 'https://chatgpt.com/?promoCode=4Q9CIUGXHDAFRN4A', 'https://chatgpt.com/?promoCode=D2M0LV8FAFAPB3UF', 'https://chatgpt.com/?promoCode=J5W475ZQILXKJVAK', 'https://chatgpt.com/?promoCode=CBST6RLMYNSNXBMU', 'https://chatgpt.com/?promoCode=H2VEH7QP1IYEZ18I', 'https://chatgpt.com/?promoCode=88SIUAPG5K1RAVBQ', 'https://chatgpt.com/?promoCode=RXI4Z3M88CIA45Y0', 'https://chatgpt.com/?promoCode=XRI9PS9ASUVNGTSC', 'https://chatgpt.com/?promoCode=HB2IV6NX6L8CY5NL', 'https://chatgpt.com/?promoCode=DLZ1T2MWOQU6Y67E', 'https://chatgpt.com/?promoCode=EL7T7GTKEOQ8JX4E', 'https://chatgpt.com/?promoCode=55INME5FNM9G1HIL', 'https://chatgpt.com/?promoCode=IFS6DVCRW8CPDC31', 'https://chatgpt.com/?promoCode=4IWE4CNGZU7K1D77', 'https://chatgpt.com/?promoCode=I29E0DXRLPTN8FCP', 'https://chatgpt.com/?promoCode=GQUELFW28O81F9AK', 'https://chatgpt.com/?promoCode=MFWOP5V58OCS7EYR', 'https://chatgpt.com/?promoCode=7EC4KKWSF3T9VWK3', 'https://chatgpt.com/?promoCode=QQZL1VCVPSD70AH6', 'https://chatgpt.com/?promoCode=5DQMXMJY8N4B3V04', 'https://chatgpt.com/?promoCode=1R6RXFZDT0M0BGBB', 'https://chatgpt.com/?promoCode=YRDMAVBTLIJT6GDG', 'https://chatgpt.com/?promoCode=L971PQ9CICCL4YAY', 'https://chatgpt.com/?promoCode=F17LM5OMKCYN7RWT', 'https://chatgpt.com/?promoCode=H7WRQDUNFH12CWJA', 'https://chatgpt.com/?promoCode=R5JF1LL9SLFO8RPE', 'https://chatgpt.com/?promoCode=XX1RYJQCKTAIYKEV', 'https://chatgpt.com/?promoCode=YB1YH05C5BVBVDRZ', 'https://chatgpt.com/?promoCode=32EE3WAAVI0HFPS3', 'https://chatgpt.com/?promoCode=2M85D1ONRYV2KPJR', 'https://chatgpt.com/?promoCode=IEK964D0D27NBTMC', 'https://chatgpt.com/?promoCode=W5X5E0BPYIIEOYN7', 'https://chatgpt.com/?promoCode=B03X1SY908IXO4H5', 'https://chatgpt.com/?promoCode=PDHZ2ZW233SW7VSH', 'https://chatgpt.com/?promoCode=AAH71FPOPEMJ4CNX'];
+        let currentIndex = 0;
+        
+        function openNextThree() {
+            const remainingUrls = urls.slice(currentIndex, currentIndex + 3);
+            if (remainingUrls.length === 0) {
+                alert('כל הלינקים נפתחו!');
+                return;
+            }
+            
+            remainingUrls.forEach(url => {
+                window.open(url, '_blank');
+            });
+            
+            currentIndex += 3;
+            
+            // Update button text
+            const button = event.target;
+            const remaining = urls.length - currentIndex;
+            if (remaining > 0) {
+                button.textContent = `🚀 פתח 3 לינקים הבאים (${remaining} נותרו)`;
+            } else {
+                button.textContent = '✅ כל הלינקים נפתחו';
+                button.disabled = true;
+            }
+        }
+        
+        function markAsValid(url, rowIndex) {
+            moveToCompleted(url, rowIndex, 'valid', '✅ תקין');
+            saveResult(url, 'valid');
+        }
+        
+        function markAsInvalid(url, rowIndex) {
+            moveToCompleted(url, rowIndex, 'invalid', '❌ לא תקין');
+            saveResult(url, 'invalid');
+        }
+        
+        function moveToCompleted(url, rowIndex, status, statusText) {
+            // Remove row from main table
+            const row = document.getElementById(`row-${rowIndex}`);
+            if (row) {
+                row.remove();
+            }
+            
+            // Add to completed section
+            addToCompleted(url, status, statusText);
+            
+            // Update counters
+            updateCounters();
+            
+            // Show completed section if it was hidden
+            const completedSection = document.getElementById('completed-section');
+            completedSection.style.display = 'block';
+        }
+        
+        function addToCompleted(url, status, statusText) {
+            const completedUrls = document.getElementById('completed-urls');
+            const urlElement = document.createElement('div');
+            urlElement.className = `completed-url ${status}`;
+            urlElement.innerHTML = `
+                <div style="font-weight: bold; margin-bottom: 4px;">${statusText}</div>
+                <div style="font-size: 0.8em; color: #ccc;">${url}</div>
+            `;
+            completedUrls.appendChild(urlElement);
+        }
+        
+        function updateStatus(url, rowIndex, status, statusText) {
+            const statusElement = document.getElementById(`status-${rowIndex}`);
+            statusElement.textContent = statusText;
+            statusElement.className = `status-${status}`;
+            
+            // Update counters
+            updateCounters();
+        }
+        
+        function updateCounters() {
+            // Count from main table (pending)
+            const pendingCount = document.querySelectorAll('.status-pending').length;
+            
+            // Count from completed section
+            const validCount = document.querySelectorAll('.completed-url.valid').length;
+            const invalidCount = document.querySelectorAll('.completed-url.invalid').length;
+            
+            document.getElementById('valid-count').textContent = validCount;
+            document.getElementById('invalid-count').textContent = invalidCount;
+            document.getElementById('pending-count').textContent = pendingCount;
+        }
+        
+        function saveResult(url, status) {
+            // Send result to server (simplified - in real app you'd use fetch)
+            const results = JSON.parse(localStorage.getItem('urlResults') || '{}');
+            results[url] = {
+                status: status,
+                timestamp: new Date().toISOString()
+            };
+            localStorage.setItem('urlResults', JSON.stringify(results));
+        }
+        
+        function copyAllUrls() {
+            const text = urls.join('\n');
+            navigator.clipboard.writeText(text).then(() => {
+                alert('כל הכתובות הועתקו ללוח!');
+            }).catch(() => {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                alert('כל הכתובות הועתקו ללוח!');
+            });
+        }
+        
+        function exportResults() {
+            const results = JSON.parse(localStorage.getItem('urlResults') || '{}');
+            const dataStr = JSON.stringify(results, null, 2);
+            const dataBlob = new Blob([dataStr], {type: 'application/json'});
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'url_results.json';
+            link.click();
+            URL.revokeObjectURL(url);
+        }
+        
+        function exportValidUrls() {
+            const validElements = document.querySelectorAll('.completed-url.valid');
+            const validUrls = Array.from(validElements).map(el => {
+                const urlText = el.querySelector('div:last-child').textContent;
+                return urlText.trim();
+            });
+            
+            if (validUrls.length === 0) {
+                alert('אין לינקים תקינים לייצוא');
+                return;
+            }
+            
+            const dataStr = validUrls.join('\n');
+            const dataBlob = new Blob([dataStr], {type: 'text/plain'});
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'valid_urls.txt';
+            link.click();
+            URL.revokeObjectURL(url);
+            
+            alert(`ייצאו ${validUrls.length} לינקים תקינים לקובץ valid_urls.txt`);
+        }
+        
+        function exportInvalidUrls() {
+            const invalidElements = document.querySelectorAll('.completed-url.invalid');
+            const invalidUrls = Array.from(invalidElements).map(el => {
+                const urlText = el.querySelector('div:last-child').textContent;
+                return urlText.trim();
+            });
+            
+            if (invalidUrls.length === 0) {
+                alert('אין לינקים לא תקינים לייצוא');
+                return;
+            }
+            
+            const dataStr = invalidUrls.join('\n');
+            const dataBlob = new Blob([dataStr], {type: 'text/plain'});
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'invalid_urls.txt';
+            link.click();
+            URL.revokeObjectURL(url);
+            
+            alert(`ייצאו ${invalidUrls.length} לינקים לא תקינים לקובץ invalid_urls.txt`);
+        }
+        
+        // Add keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'a') {
+                e.preventDefault();
+                copyAllUrls();
+            }
+            if (e.ctrlKey && e.key === 'o') {
+                e.preventDefault();
+                openNextThree();
+            }
+            if (e.ctrlKey && e.key === 'e') {
+                e.preventDefault();
+                exportResults();
+            }
+        });
+        
+        // Load saved results on page load
+        window.addEventListener('load', function() {
+            const savedResults = JSON.parse(localStorage.getItem('urlResults') || '{}');
+            Object.keys(savedResults).forEach(url => {
+                const urlIndex = urls.indexOf(url);
+                if (urlIndex !== -1) {
+                    const result = savedResults[url];
+                    updateStatus(url, urlIndex + 1, result.status, 
+                        result.status === 'valid' ? '✅ תקין' : '❌ לא תקין');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

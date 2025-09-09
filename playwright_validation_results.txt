@@ -1,0 +1,33 @@
+Playwright URL Validation Results
+============================================================
+
+PROMO_NOT_FOUND: https://chatgpt.com/?promoCode=GRXMU8YIZLEFWSFH
+Message: HTTP 200 | promo_found=False
+------------------------------------------------------------
+PROMO_NOT_FOUND: https://chatgpt.com/?promoCode=TF7Z84DE55TAKBI9
+Message: HTTP 200 | promo_found=False
+------------------------------------------------------------
+PROMO_NOT_FOUND: https://chatgpt.com/?promoCode=GLW395K9BSZYX3GQ
+Message: HTTP 200 | promo_found=False
+------------------------------------------------------------
+PROMO_NOT_FOUND: https://chatgpt.com/?promoCode=FOS9Q5XW0NTKEX3O
+Message: HTTP 200 | promo_found=False
+------------------------------------------------------------
+PROMO_NOT_FOUND: https://chatgpt.com/?promoCode=3LG8FX2WV1KLPYIE
+Message: HTTP 200 | promo_found=False
+------------------------------------------------------------
+PROMO_NOT_FOUND: https://chatgpt.com/?promoCode=W83X4P4GPLL91GCU
+Message: HTTP 200 | promo_found=False
+------------------------------------------------------------
+PROMO_NOT_FOUND: https://chatgpt.com/?promoCode=8ELD2S40189LH0N2
+Message: HTTP 200 | promo_found=False
+------------------------------------------------------------
+PROMO_NOT_FOUND: https://chatgpt.com/?promoCode=DZGP421X2LE6S37C
+Message: HTTP 200 | promo_found=False
+------------------------------------------------------------
+PROMO_NOT_FOUND: https://chatgpt.com/?promoCode=5BZF1PE6IFFHCASX
+Message: HTTP 200 | promo_found=False
+------------------------------------------------------------
+PROMO_NOT_FOUND: https://chatgpt.com/?promoCode=CRNN53UKMA4DVV2W
+Message: HTTP 200 | promo_found=False
+------------------------------------------------------------

@@ -1,0 +1,18 @@
+Updated URL Validation Results (using GET requests)
+============================================================
+
+✗ INVALID: https://chatgpt.com/?promoCode=GRXMU8YIZLEFWSFH
+Message: HTTP Error: 403
+--------------------------------------------------
+✗ INVALID: https://chatgpt.com/?promoCode=TF7Z84DE55TAKBI9
+Message: HTTP Error: 403
+--------------------------------------------------
+✗ INVALID: https://chatgpt.com/?promoCode=GLW395K9BSZYX3GQ
+Message: HTTP Error: 403
+--------------------------------------------------
+✗ INVALID: https://chatgpt.com/?promoCode=FOS9Q5XW0NTKEX3O
+Message: HTTP Error: 403
+--------------------------------------------------
+✗ INVALID: https://chatgpt.com/?promoCode=3LG8FX2WV1KLPYIE
+Message: HTTP Error: 403
+--------------------------------------------------

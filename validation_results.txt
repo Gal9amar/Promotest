@@ -1,0 +1,33 @@
+URL Validation Results
+==================================================
+
+✗ INVALID: https://chatgpt.com/?promoCode=ZGL3JWIAMUB1E7R9
+Message: HTTP Error: 403
+--------------------------------------------------
+✗ INVALID: https://chatgpt.com/?promoCode=18KYZ8ZYPOI6C10Y
+Message: HTTP Error: 403
+--------------------------------------------------
+✗ INVALID: https://chatgpt.com/?promoCode=M28BW5TI5XUTD41G
+Message: HTTP Error: 403
+--------------------------------------------------
+✗ INVALID: https://chatgpt.com/?promoCode=BNF9VOJGJJKI06W1
+Message: HTTP Error: 403
+--------------------------------------------------
+✗ INVALID: https://chatgpt.com/?promoCode=FDQMWOCBCPME5KOW
+Message: HTTP Error: 403
+--------------------------------------------------
+✗ INVALID: https://chatgpt.com/?promoCode=NHRJIXETVY47H59Z
+Message: HTTP Error: 403
+--------------------------------------------------
+✗ INVALID: https://chatgpt.com/?promoCode=NRJNK00J9OE5B490
+Message: HTTP Error: 403
+--------------------------------------------------
+✗ INVALID: https://chatgpt.com/?promoCode=5653LRRDFE068WT5
+Message: HTTP Error: 403
+--------------------------------------------------
+✗ INVALID: https://chatgpt.com/?promoCode=0IBW8RSZ86LQ6XY4
+Message: HTTP Error: 403
+--------------------------------------------------
+✗ INVALID: https://chatgpt.com/?promoCode=7PZ73ZDIYN16NBX3
+Message: HTTP Error: 403
+--------------------------------------------------
